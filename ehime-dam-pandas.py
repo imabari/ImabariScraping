@@ -12,11 +12,11 @@ def timeconv(x):
 # GRP = USR004:玉川ダム、USR005:台ダム、USR010:鹿野川ダム、USR011:野村ダム
 grp = "USR004"
 
-# 結果
-result = []
-
 # 期間（2019/04/25 00:10　～　2019/04/27 00:00）
 period = pd.date_range("2019-04-25 04:00:00", "2019-04-27 00:00:00", freq="4H")
+
+# 結果
+result = []
 
 for i in tqdm(period):
 
