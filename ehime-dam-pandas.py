@@ -18,14 +18,14 @@ period = pd.date_range("2019-04-25 04:00:00", "2019-04-27 00:00:00", freq="4H")
 # 結果
 result = []
 
-for i in tqdm(period):
+for now in tqdm(period):
 
     url = "http://183.176.244.72/cgi/170_USER_010_01.cgi?GID=170_USER_010&UI=U777&SI=00000&MNU=1&LO=88&BTY=IE6X&NDT=1&SK=0000000&DT={0}&GRP={1}&TPG=1&PG=1&KTM=3".format(
-        i.strftime("%Y%m%d%H%M"), grp
+        now.strftime("%Y%m%d%H%M"), grp
     )
 
     # 時間調整
-    dt = i - datetime.timedelta(hours=4)
+    dt = now - datetime.timedelta(hours=4)
 
     # ダム情報をスクレイピング
     dam = pd.read_html(url, na_values=["欠測", "−"])
