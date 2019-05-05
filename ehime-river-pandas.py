@@ -26,17 +26,17 @@ period = pd.date_range("2019-04-27 04:00:00", "2019-05-01 00:00:00", freq="4H")
 # 結果
 result = []
 
-for i in tqdm(period):
+for now in tqdm(period):
 
     # 時間調整
-    dt = i - datetime.timedelta(hours=4)
+    dt = now - datetime.timedelta(hours=4)
 
     tmp = []
 
     for pg in range(1, tpg + 1):
 
         url = "http://183.176.244.72/cgi/050_HQ_030_01.cgi?GID=050_HQ_030&UI=U777&SI=00000&LO=88&SRO=1&KKB=101100&DSP=11110&SKZ=111&NDT=1&MNU=1&BTY=IE6X&SSC=0&RBC=100&DT={0}&GRP={1}&TPG={2}&PG={3}&KTM=3".format(
-            i.strftime("%Y%m%d%H%M"), grp, tpg, pg
+            now.strftime("%Y%m%d%H%M"), grp, tpg, pg
         )
 
         # ダム情報をスクレイピング
